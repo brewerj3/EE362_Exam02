@@ -4,19 +4,18 @@
 
 
 int blocks(int h) {
-    if (h == 1) {
-        return 1;
+    switch(h) {
+        case 1:
+            return 1;
+        case 2:
+            return 2;
+        case 3:
+            return 3;
+        case 4:
+            return 6;
+        default:
+            return blocks(h - 1) + blocks(h - 2) + blocks(h - 4);
     }
-    if (h == 2) {
-        return 2;
-    }
-    if (h == 3) {
-        return 3;
-    }
-    if (h == 4) {
-        return 6;
-    }
-    return blocks(h - 1) + blocks(h - 2) + blocks(h - 4);
 }
 
 int main() {

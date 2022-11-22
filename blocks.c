@@ -2,9 +2,8 @@
 #include <stdio.h>
 
 
-
 int blocks(int h) {
-    switch(h) {
+    switch (h) {
         case 1:
             return 1;
         case 2:

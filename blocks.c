@@ -1,29 +1,22 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int binomial(int n, int k) {
-    if (k < 0 || n < 0) {
-        return 1;
-    }
-    if (k == 0 || k == n || n == 0) {
-        return 1;
-    }
-    return binomial(n - 1, k - 1) + binomial(n - 1, k);
-}
+
 
 int blocks(int h) {
-    //printf("in blocks\n");
-    int oneCmBlocks = binomial(h, 1);
-    int twoCmBlocks = binomial(h, 2);
-    int fourCmBlocks = binomial(h, 4);
-    printf("1cm Blocks = %4i  |  2cm Blocks = %4i  |  4cm Blocks = %4i\n", oneCmBlocks, twoCmBlocks, fourCmBlocks);
-    if(h < 2) {
-        return oneCmBlocks;
+    if (h == 1) {
+        return 1;
     }
-    if(h<4) {
-        return oneCmBlocks+twoCmBlocks;
+    if (h == 2) {
+        return 2;
     }
-    return binomial(h, 1) + binomial(h, 2) + binomial(h, 4);
+    if (h == 3) {
+        return 3;
+    }
+    if (h == 4) {
+        return 6;
+    }
+    return blocks(h - 1) + blocks(h - 2) + blocks(h - 4);
 }
 
 int main() {
